@@ -51,11 +51,13 @@ const exp = (function() {
         maxWin: [
             `<div class='parent'>
                 <p>In Feel the Spin, earnings are based on winning streaks: the longer a player's winning streaks, the more points they earn.
-                Specifically, whenever a player lands on a losing wedge, they earn 10 points for every consecutive win:</p>
-                <p>0 wins before a loss = 10 points</br>
-                1 win before a loss = 20 points</br>
-                2 wins before a win = 30 points</br>
-                3 wins before a win = 40 points</br>
+                Specifically, whenever a player breaks a winning streak by landing on a losing wedge, they earn 10 points for every consecutive win. For example:</p>
+                <p>0 wins before a loss = 0 points</br>
+                1 win before a loss = 10 points</br>
+                2 wins before a win = 20 points</br>
+                3 wins before a win = 30 points</br>
+                4 wins before a win = 40 points</br>
+                5 wins before a win = 50 points</br>
                 ...</p>
             </div>`,
 
@@ -63,7 +65,7 @@ const exp = (function() {
                 <p>The length of the current winning streak is displayed throughout the game.
                 <br>For example, after three consecutive wins, the following would be displayed:</p>
                 <div class="score-board">
-                    <div class="score-board-title">Current Streak:</div>
+                    <div class="score-board-title">Winning Streak:</div>
                     <div class="score-board-score">3</div>
                 </div>
                 <img src="./img/pre-pic.png" style="width:400px; height:400px">
@@ -71,11 +73,6 @@ const exp = (function() {
 
             `<div class='parent'>
                 <p>After each loss, a message appears indicating the number of points earned.</p>
-                <div class="score-board">
-                    <div class="score-board-title">Current Streak:</div>
-                    <div class="score-board-score">3</div>
-                </div>
-                <img src="./img/pre-pic.png" style="width:400px; height:400px">
             </div>`,
             
             `<div class='parent'>
@@ -91,11 +88,13 @@ const exp = (function() {
         minLose: [
             `<div class='parent'>
                 <p>In Feel the Spin, earnings are based on losing streaks: the shorter a player's losing streaks, the more points they earn.
-                Specifically, whenever a player lands on a winning wedge, they earn 11 points minus 1 point for every consecutive loss:</p>
+                Specifically, whenever a player breaks a losing streak by landing on a winning wedge, they earn 11 points minus 1 point for every consecutive loss. For example:</p>
                 <p>0 losses before a win = 11 points</br>
                 1 loss before a win = 10 points</br>
                 2 losses before a win = 9 points</br>
                 3 losses before a win = 8 points</br>
+                4 losses before a win = 7 points</br>
+                5 losses before a win = 6 points</br>
                 ...</p>
             </div>`,
 
@@ -103,7 +102,7 @@ const exp = (function() {
                 <p>The length of the current losing streak is displayed throughout the game.
                 <br>For example, after three consecutive losses, the following would be displayed:</p>
                 <div class="score-board">
-                    <div class="score-board-title">Current Streak:</div>
+                    <div class="score-board-title">Losing Streak:</div>
                     <div class="score-board-score">3</div>
                 </div>
                 <img src="./img/pre-pic.png" style="width:400px; height:400px">
@@ -111,11 +110,6 @@ const exp = (function() {
 
             `<div class='parent'>
                 <p>After each win, a message appears indicating the number of points earned.</p>
-                <div class="score-board">
-                    <div class="score-board-title">Current Streak:</div>
-                    <div class="score-board-score">3</div>
-                </div>
-                <img src="./img/pre-pic.png" style="width:400px; height:400px">
             </div>`,
             
             `<div class='parent'>
@@ -161,7 +155,7 @@ const exp = (function() {
 
     const intro = {
         type: jsPsychInstructions,
-        pages: (playOrPredict == "play") ? [...html.welcome, ...html.minLose, ...html.redict] : [...html.welcome, ...html.minLose, ...html.predict],
+        pages: (goalType == "maxWin") ? [...html.welcome, ...html.maxWin, ...html.predict] : [...html.welcome, ...html.minLose, ...html.predict],
         show_clickable_nav: true,
         post_trial_gap: 500,
         allow_keys: false,
