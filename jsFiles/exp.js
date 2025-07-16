@@ -273,14 +273,14 @@ const exp = (function() {
     };
 
     let baseline_wheels = [
-        {sectors: [ wedges.lose, wedges.lose, wedges.win, wedges.lose, wedges.lose, wedges.win ], wheel_id: 0, reliability: 1, label: "100%", ev: 2.33, mi: .65},
+        {sectors: [ wedges.lose, wedges.lose, wedges.win, wedges.lose, wedges.lose, wedges.win ], wheel_id: 0, reliability: 1, label: "100%", nWin: 2, ev: 2.33, mi: .65},
     ];
 
     // define each wheel
     let target_wheels = [
-        {sectors: [ wedges.lose, wedges.lose, wedges.lose, wedges.lose, wedges.lose, wedges.win ], wheel_id: 1, reliability: 1, label: "100%", ev: 2.33, mi: .65},
-        {sectors: [ wedges.lose, wedges.win, wedges.lose, wedges.win, wedges.lose, wedges.win ], wheel_id: 2, reliability: 1, label: "100%", ev: 5, mi: 1},
-        {sectors: [ wedges.win, wedges.win, wedges.win, wedges.win, wedges.win, wedges.lose ], wheel_id: 3, reliability: 1, label: "100%", ev: 7.67, mi: .65},
+        {sectors: [ wedges.lose, wedges.lose, wedges.lose, wedges.lose, wedges.lose, wedges.win ], wheel_id: 1, reliability: 1, label: "100%", nWin: 1, ev: 2.33, mi: .65},
+        {sectors: [ wedges.lose, wedges.win, wedges.lose, wedges.win, wedges.lose, wedges.win ], wheel_id: 2, reliability: 1, label: "100%", nWin: 3, ev: 5, mi: 1},
+        {sectors: [ wedges.win, wedges.win, wedges.win, wedges.win, wedges.win, wedges.lose ], wheel_id: 3, reliability: 1, label: "100%", nWin: 5, ev: 7.67, mi: .65},
     ];
 
     target_wheels = jsPsych.randomization.repeat(target_wheels, 1);
@@ -311,7 +311,7 @@ const exp = (function() {
             scoreBoard: function() {
                 return '';
             },
-            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi},
+            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi, nWin: wheel.nWin},
             on_finish: function(data) {
                 data.trial = trial;
                 outcome = data.outcome;
@@ -334,7 +334,7 @@ const exp = (function() {
             },
             choices: "NO_KEYS",
             trial_duration: 2000,
-            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi},
+            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi, nWin: wheel.nWin},
             on_finish: function(data) {
                 data.trial = trial;
                 trial++;
@@ -362,7 +362,7 @@ const exp = (function() {
             ],
             randomize_question_order: false,
             scale_width: 600,
-            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi},
+            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi, nWin: wheel.nWin},
              on_finish: function(data) {
                 data.trial = trial - 1;
                 saveSurveyData(data);
@@ -378,7 +378,7 @@ const exp = (function() {
             ],
             randomize_question_order: false,
             scale_width: 600,
-            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi},
+            data: {round: round + 1, wheel_id: wheel.wheel_id, ev: wheel.ev, reliability: wheel.reliability, mi: wheel.mi, nWin: wheel.nWin},
              on_finish: function(data) {
                 data.trial = trial - 1;
                 saveSurveyData(data);
@@ -476,7 +476,7 @@ const exp = (function() {
     p.save_data = {
         type: jsPsychPipe,
         action: "save",
-        experiment_id: "zQNHCUVS8KeZ",
+        experiment_id: "17hNxGLvGRCq",
         filename: filename,
         data_string: ()=>jsPsych.data.get().csv()
     };
