@@ -68,7 +68,7 @@ const exp = (function() {
                     <div class="score-board-title">Winning Streak:</div>
                     <div class="score-board-score">3</div>
                 </div>
-                <img src="./img/pre-pic.png" style="width:400px; height:400px">
+                <img src="./img/win-pic.png" style="width:400px; height:400px">
             </div>`,
 
             `<div class='parent'>
@@ -105,7 +105,7 @@ const exp = (function() {
                     <div class="score-board-title">Losing Streak:</div>
                     <div class="score-board-score">3</div>
                 </div>
-                <img src="./img/pre-pic.png" style="width:400px; height:400px">
+                <img src="./img/loss-pic.png" style="width:400px; height:400px">
             </div>`,
 
             `<div class='parent'>
