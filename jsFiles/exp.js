@@ -54,10 +54,10 @@ const exp = (function() {
                 Specifically, whenever a player breaks a winning streak by landing on a losing wedge, they earn 10 points for every consecutive win. For example:</p>
                 <p>0 wins before a loss = 0 points</br>
                 1 win before a loss = 10 points</br>
-                2 wins before a win = 20 points</br>
-                3 wins before a win = 30 points</br>
-                4 wins before a win = 40 points</br>
-                5 wins before a win = 50 points</br>
+                2 wins before a loss = 20 points</br>
+                3 wins before a loss = 30 points</br>
+                4 wins before a loss = 40 points</br>
+                5 wins before a loss = 50 points</br>
                 ...</p>
             </div>`,
 
